@@ -2,8 +2,8 @@
 A movie search app is used to find movies you like in a quick and clean manner based on plot, rating or liking.
 
 ## How to run the app
-1.Either fork or download the app and open the folder in your editor.
-2.Copy the path and paste it on the browser.
+1. Either fork or download the app and open the folder in your editor.
+2. Copy the path and paste it on the browser.
 
 *You can just click the index.html file and your browser will redirect you.
 
