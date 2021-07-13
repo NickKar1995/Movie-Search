@@ -26,4 +26,4 @@ A movie search app is used to find movies you like in a quick and clean manner b
 
 
 ## What the app looks like
-*https://github.com/Xontrokolis/Movie-Search/blob/main/MovieApp.png*
+#https://github.com/Xontrokolis/Movie-Search/blob/main/MovieApp.png
