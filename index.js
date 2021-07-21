@@ -7,24 +7,28 @@ let pagination = {
 }
 //totalResults is for referrence only
 
+
+
+
 let search = (query,page) => {
   if (!query && page){
     pagination.page=parseInt(page);
     query=document.querySelector('#search-input').value;
   }
   fetch(`${apiUrl}&s=${query}&page=${pagination.page}`).then(response =>response.json()).then(response=>{
-    console.log(response);
+    // console.log(response);
     // let totalResults = (response.totalResults)/10;
     if (response.Error) {
       alert(response.Error)
       return;
     }
+    
     let movies = response.Search;
     pagination.totalResults=parseInt(response.totalResults)
     pagination.pages=Math.ceil(pagination.totalResults/10)
     document.querySelector('#results').innerHTML=`Sum of all movies ${pagination.totalResults}`
-    console.log(pagination.totalResults)
-    console.log(pagination.pages)
+    // console.log(pagination.totalResults)
+    // console.log(pagination.pages)
     
     createPagination(pagination.pages,pagination.page)
     createMovies(movies);
@@ -33,20 +37,21 @@ let search = (query,page) => {
 
 let createMovies = (movies) => {
   document.querySelector('#movies').innerHTML=''
-
-  movies.forEach(movie => {
-    let movies = `<div class = "col>"<div class="card" style="width: 18rem;">
-  <img class="card-img-top" src="${movie.Poster}" alt="Card image cap">
+//here i changed movies in for each for m and movies for movie in let
+  movies.forEach(m => {
+    document.querySelector('#movies').innerHTML='';
+    let movie = `<div class = "col>"<div class="card" style="width: 18rem;">
+  <img class="card-img-top" src="${m.Poster}" alt="Card image cap">
   <div class="card-body">
-    <h5 class="card-title">${movie.Title}</h5>
-    <a href="javascript:;" data-imdb = "${movie.imdbID}" onclick = "extraData('${movie.imdbID}')" class="btn btn-primary">Show More</a>
+    <h5 class="card-title">${m.Title}</h5>
+    <a href="javascript:;" data-imdb = "${m.imdbID}" onclick = "extraData('${m.imdbID}')" class="btn btn-primary">Show More</a>
     <ul class="list-group list-group-flush">
-    <li class="list-group-item">${movie.Year}</li>
+    <li class="list-group-item">${m.Year}</li>
   </ul>
   </div>
 </div>
 </div>`
-    document.querySelector('#movies').innerHTML += movies;
+    document.querySelector('#movies').innerHTML += movie;
   })
 
 }
@@ -74,9 +79,10 @@ document.querySelector('#search-input').addEventListener('keyup', function(event
 
   if (event.key == 'Enter') {
     if (this.value.length < 4) {
+      console.log('reached')
       alert("Need more characters")
-      return;
     }
+    
       pagination.page=1;
       search(this.value);
   }
@@ -85,9 +91,10 @@ document.querySelector('#search-input').addEventListener('keyup', function(event
 
 document.querySelector('#search-button').addEventListener('click', function(event) {
   let query = document.querySelector("#search-input").value;
+  console.log(query)
   if (query.length < 4) {
+    console.log('reached cool')
     alert('Need more characters')
-    return
   }
   pagination.page=1;
   search(query);
@@ -136,3 +143,4 @@ let createEvents=()=>{
     })
   })
 }
+
