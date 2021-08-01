@@ -37,7 +37,6 @@ let search = (query,page) => {
 
 let createMovies = (movies) => {
   document.querySelector('#movies').innerHTML=''
-//here i changed movies in for each for m and movies for movie in let
   movies.forEach(m => {
     
     let movie = `<div class = "col>"<div class="card" style="width: 18rem;">
