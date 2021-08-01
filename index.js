@@ -1,5 +1,5 @@
 let apiKey = 'f3a23ecc';
-let apiUrl = `http://www.omdbapi.com/?apikey=${apiKey}`;
+let apiUrl = `https://www.omdbapi.com/?apikey=${apiKey}`;
 let pagination = {
   page:1,
   totalResults:0,
