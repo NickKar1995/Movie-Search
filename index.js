@@ -39,7 +39,7 @@ let createMovies = (movies) => {
   document.querySelector('#movies').innerHTML=''
 //here i changed movies in for each for m and movies for movie in let
   movies.forEach(m => {
-    document.querySelector('#movies').innerHTML='';
+    
     let movie = `<div class = "col>"<div class="card" style="width: 18rem;">
   <img class="card-img-top" src="${m.Poster}" alt="Card image cap">
   <div class="card-body">
